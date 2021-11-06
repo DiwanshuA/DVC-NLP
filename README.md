@@ -1,4 +1,4 @@
-# dvc-NLP-simple-usecase
+# dvc-NLP
 DVC NLP project
 
 ## Reference repository:
