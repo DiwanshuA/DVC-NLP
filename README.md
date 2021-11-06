@@ -1,4 +1,4 @@
-# dvc-NLP
+# NLP pipeline using dvc
 DVC NLP project
 
 ## Reference repository:
