@@ -32,7 +32,7 @@ def main(config_path, params_path):
 
     matrix = joblib.load(featurized_train_data_path)
 
-    labels = np.squeeze(matrix[:, 1]).toarray()
+    labels = np.squeeze(matrix[:, 1].toarray())
     X = matrix[:, 2:]
 
     logging.info(f"input matrix size: {matrix.shape}")
@@ -43,7 +43,12 @@ def main(config_path, params_path):
     n_est = params["train"]["n_est"]
     min_split = params["train"]["min_split"]
 
-    model = RandomForestClassifier(n_estimators=n_est, min_samples_split=min_split, random_state=seed)
+    model = RandomForestClassifier(n_estimators=n_est,
+     min_samples_split=min_split, 
+     n_jobs=5, 
+     random_state=seed
+     )
+    
     model.fit(X, labels)
 
     joblib.dump(model, model_path)
